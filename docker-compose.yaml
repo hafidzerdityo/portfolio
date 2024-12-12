@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hafidz_portfolio
+    ports:
+      - "8004:8004"
+    volumes:
+      - .:/app
+      - /app/node_modules # This will prevent node_modules from being overwritten
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev"] # Run Vite's dev server
+    stdin_open: true # Keep the terminal open (required for interactive use)
+    tty: true # Allocate a pseudo-TTY for interactive use
