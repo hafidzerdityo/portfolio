@@ -155,13 +155,14 @@ const Projects = ({ setShowNav }) => {
                   {val.title} <span className="text-base-500">&bull;</span>{" "}
                   {val.year}
                 </p>
+              </div>
+              <div className="flex-grow">
                 <p className="mt-2 text-sm text-base-content">
                   {val.desc.length > 100
                     ? `${val.desc.substring(0, 100)}...`
                     : val.desc}
                 </p>
               </div>
-
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 {val.tag.map((tag, index) => (
