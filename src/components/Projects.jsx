@@ -13,18 +13,6 @@ const Projects = ({ setShowNav }) => {
   const [project, setProject] = useState(null);
   const projectList = [
     {
-      image: bjbs_ifos,
-      year: "2024",
-      name: "BJBS IFOS",
-      key: "bjbs_ifos",
-      title: "Bank BJB Syariah Integrated Financing Originating System",
-      link: null,
-      date: "May 2024",
-      desc: "I developed backend API systems for the new standalone BJBS Financing app. Developed using Python FastAPI.",
-      tag: ["Python", "FastAPI", "Docker"],
-      is_private: false,
-    },
-    {
       image: pos_psl,
       year: "2024",
       name: "Pos Smart Logistics",
@@ -48,6 +36,19 @@ const Projects = ({ setShowNav }) => {
       tag: ["Go", "Fiber", "Docker"],
       is_private: false,
     },
+    {
+      image: bjbs_ifos,
+      year: "2024",
+      name: "BJBS IFOS",
+      key: "bjbs_ifos",
+      title: "Bank BJB Syariah Integrated Financing Originating System",
+      link: null,
+      date: "May 2024",
+      desc: "I developed backend API systems for the new standalone BJBS Financing app. Developed using Python FastAPI.",
+      tag: ["Python", "FastAPI", "Docker"],
+      is_private: false,
+    },
+
     {
       image: bjbs_bds,
       year: "2024",

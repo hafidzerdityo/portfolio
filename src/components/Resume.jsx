@@ -31,6 +31,15 @@ const Resume = () => {
     },
   ];
 
+  const educationList = [
+    {
+      year_start: "2015",
+      year_end: "2020",
+      university_name: "Telkom University",
+      degree: "Bachelor of Engineering in Electrical and Electronics",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-base-100 py-10 pt-24">
       <div className="container mx-auto max-w-4xl">
@@ -81,13 +90,21 @@ const Resume = () => {
             Education
           </h2>
           <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-            <div className="flex justify-between">
-              <span className="text-sm text-base-content/70">2015 - 2020</span>
-              <p className="text-sm text-base-content/70">Telkom University</p>
-            </div>
-            <h3 className="text-lg font-semibold text-base-content mt-2">
-              Bachelor of Engineering in Electrical and Electronics
-            </h3>
+            {educationList.map((educationVal) => (
+              <div className="my-6">
+                <div className="flex justify-between">
+                  <p className="text-xs text-base-content/70">
+                    {educationVal.university_name}
+                  </p>
+                  <span className="text-xs text-base-content/70">
+                    {educationVal.year_start} - {educationVal.year_end}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-base-content mt-2">
+                  {educationVal.degree}
+                </h3>
+              </div>
+            ))}
           </div>
         </section>
 
