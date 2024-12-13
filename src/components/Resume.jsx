@@ -1,4 +1,13 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPython,
+  faNodeJs,
+  faReact,
+  faAws,
+  faJsSquare,
+  faGolang,
+} from "@fortawesome/free-brands-svg-icons";
 import cv_hafidz from "../assets/cv_hafidz.pdf";
 
 const Resume = () => {
@@ -38,6 +47,15 @@ const Resume = () => {
       university_name: "Telkom University",
       degree: "Bachelor of Engineering in Electrical and Electronics",
     },
+  ];
+
+  const techStackList = [
+    { name: "Go • Fiber • gRPC", icon: faGolang },
+    { name: "Python • FastAPI", icon: faPython },
+    { name: "Node.js • Express.js", icon: faNodeJs },
+    { name: "JavaScript", icon: faJsSquare },
+    { name: "React.js", icon: faReact },
+    { name: "AWS", icon: faAws },
   ];
 
   return (
@@ -91,7 +109,7 @@ const Resume = () => {
           </h2>
           <div className="bg-base-200 p-6 rounded-lg shadow-sm">
             {educationList.map((educationVal) => (
-              <div className="my-6">
+              <div className="my-4">
                 <div className="flex justify-between">
                   <p className="text-xs text-base-content/70">
                     {educationVal.university_name}
@@ -111,14 +129,16 @@ const Resume = () => {
         {/* Skills Section */}
         <section className="mt-12">
           <h2 className="text-2xl font-semibold text-base-content mb-4">
-            Skills
+            Tech Stack
           </h2>
           <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-            <ul className="list-disc pl-5 text-sm text-base-content/70">
-              <li>Backend Development: FastAPI, Express.js, gRPC, Fiber</li>
-              <li>Frontend Development: Next.js</li>
-              <li>Machine Learning: PyTorch</li>
-              <li>Cloud Platforms: AWS, GCP</li>
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm text-base-content/70">
+              {techStackList.map((tech, index) => (
+                <li key={index} className="flex items-center space-x-2">
+                  <FontAwesomeIcon icon={tech.icon} className="text-xl" />
+                  <span>{tech.name}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </section>

@@ -27,7 +27,7 @@ const Projects = ({ setShowNav }) => {
     {
       image: posaja_umkm,
       year: "2024",
-      name: "Posaja UMKM",
+      name: "PosAja UMKM",
       key: "pos_umkm",
       title: "PosAja UMKM",
       link: null,
