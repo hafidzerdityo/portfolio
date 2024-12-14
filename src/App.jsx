@@ -31,7 +31,9 @@ const App = () => {
 
         {menu == "about" && <About />}
         {menu == "resume" && <Resume />}
-        {menu == "projects" && <Projects setShowNav={setShowNav} />}
+        {menu == "projects" && (
+          <Projects setShowNav={setShowNav} theme={theme} />
+        )}
       </div>
     </>
   );

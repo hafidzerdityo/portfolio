@@ -60,7 +60,7 @@ const Resume = () => {
 
   return (
     <div className="min-h-screen bg-base-100 py-10 pt-24">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl">
         {/* Header */}
         <div className=" p-8  text-center mb-12">
           <h1 className="text-4xl font-bold text-base-content">
