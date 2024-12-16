@@ -30,7 +30,7 @@ const Resume = () => {
       ],
     },
     {
-      date: "Jan 2021 - Jul 2022",
+      date: "Jan 2022 - Jul 2022",
       role: "Data Scientist",
       company: "Telkom Indonesia",
       type: "Contract",

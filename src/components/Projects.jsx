@@ -104,7 +104,7 @@ const Projects = ({ setShowNav }) => {
 
   return (
     <div className="min-h-screen bg-base-100 pb-10 pt-48">
-      <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl flex flex-col gap-12 lg:gap-20">
+      <div className="container text-xs lg:text-md mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl flex flex-col gap-12 lg:gap-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectList.map((val) => (
             <div
@@ -134,7 +134,7 @@ const Projects = ({ setShowNav }) => {
                 </p>
               </div>
               <div className="flex-grow">
-                <p className="mt-2 text-sm text-base-content">
+                <p className="mt-2  text-base-content">
                   {val.desc.length > 100
                     ? `${val.desc.substring(0, 100)}...`
                     : val.desc}
@@ -145,7 +145,7 @@ const Projects = ({ setShowNav }) => {
                 {val.tag.map((tag, index) => (
                   <span
                     key={index}
-                    className="text-xs font-medium text-base-600 bg-base-300 px-2 py-1 rounded-lg"
+                    className="font-medium text-base-600 bg-base-300 px-2 py-1 rounded-lg"
                   >
                     {tag}
                   </span>

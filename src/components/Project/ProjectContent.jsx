@@ -11,7 +11,7 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
 
   return (
     <div className="min-h-screen bg-base-100 py-10 pt-24">
-      <div className="container mx-auto max-w-2xl flex flex-col gap-12 lg:gap-20">
+      <div className="container text-xs lg:text-md mx-auto max-w-2xl flex flex-col gap-12 lg:gap-20 px-10 sm:px-8 lg:px-8">
         <button
           onClick={() => setProject(null)}
           className="inline-flex max-w-fit rounded-lg p-3 gap-4 items-center hover:bg-base-200"
@@ -20,7 +20,7 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
           <span>Back</span>
         </button>
 
-        <div className="flex flex-col items-center gap-10 lg:flex-row ">
+        <div className="flex flex-col items-center gap-10 lg:flex-row  ">
           <div className="flex flex-col gap-4 text-center lg:text-left ">
             <h1 className="text-3xl font-bold">{selectedProject.title}</h1>
             <div className="flex flex-col items-center gap-4 lg:flex-row">
