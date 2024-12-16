@@ -145,7 +145,7 @@ const Projects = ({ setShowNav }) => {
                 <img
                   src={val.image}
                   alt={val.name}
-                  className="grayscale rounded-md w-full h-32 object-cover transition-transform duration-300 hover:scale-105"
+                  className="grayscale rounded-md w-full h-32 object-cover object-top transition-transform duration-300 hover:scale-105"
                 />
               </div>
 
