@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import ProjectContent from "./Project/ProjectContent";
 import bjbs_bds from "../assets/ListProjects/bjbs_bds.png";
-import bjbs_cms from "../assets/ListProjects/bjbs_cms.png";
-import bjbs_crm from "../assets/ListProjects/bjbs_crm.png";
 import bjbs_ifos from "../assets/ListProjects/bjbs_ifos.png";
 import bcas_bds from "../assets/ListProjects/bcas_bds.png";
 import posaja_umkm from "../assets/ListProjects/posaja_umkm.png";
@@ -41,7 +39,7 @@ const Projects = ({ setShowNav }) => {
     {
       image: bjbs_ifos,
       year: "2024",
-      name: "BJBS IFOS",
+      name: "BJB Syariah - IFOS",
       key: "bjbs_ifos",
       title: "Bank BJB Syariah Integrated Financing Originating System",
       link: null,
@@ -54,9 +52,9 @@ const Projects = ({ setShowNav }) => {
     {
       image: bjbs_bds,
       year: "2024",
-      name: "BJBS BDS",
+      name: "BJB Syariah - BDS, CBS",
       key: "bjbs_bds",
-      title: "Bank BJB Syariah Branch Delivery System",
+      title: "Bank BJB Syariah Branch Delivery System and Core Banking System",
       link: null,
       date: "January 2024",
       desc: "I contributed to the development of microservices for the Bank BJB Syariah Branch Delivery System (BDS), which interfaces directly with customers via tellers and is connected to the Core Banking System (CBS). The BDS and CBS are microservices consisting of services for CIF, Transactions, Accounts, and Journals. The app was developed using Python with the FastAPI framework.",
@@ -64,35 +62,11 @@ const Projects = ({ setShowNav }) => {
       is_private: false,
     },
     {
-      image: bjbs_cms,
-      year: "2024",
-      name: "BJBS CMS",
-      key: "bjbs_cms",
-      title: "Bank BJB Syariah Customer Management System",
-      link: null,
-      date: "January 2024",
-      desc: "I developed backend API systems for the BJBS Customer Management System.",
-      tag: ["Python", "FastAPI", "Docker"],
-      is_private: false,
-    },
-    {
-      image: bjbs_crm,
-      year: "2024",
-      name: "BJBS CRM",
-      key: "bjbs_crm",
-      title: "Bank BJB Syariah Customer Relationship Management",
-      link: null,
-      date: "January 2024",
-      desc: "I developed backend API systems for the BJBS Customer Relationship Management.",
-      tag: ["Python", "FastAPI", "Docker"],
-      is_private: false,
-    },
-    {
       image: bcas_bds,
       year: "2023",
-      name: "BCAS BDS",
+      name: "BCA Syariah - BDS, CBS",
       key: "bcas_bds",
-      title: "Bank BCA Syariah Branch Delivery System",
+      title: "Bank BCA Syariah Branch Delivery System and Core Banking System",
       link: null,
       date: "April 2023",
       desc: "I contributed to the development of microservices for the Bank BCA Syariah Branch Delivery System (BDS), which interfaces directly with customers via bank tellers (counter services) and is connected to the Core Banking System (CBS). The BDS and CBS are microservices consisting of services for CIF, Funding, Financing, Cash, and General Ledger. All services were developed using Go with gRPC.",
