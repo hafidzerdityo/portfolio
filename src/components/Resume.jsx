@@ -5,7 +5,6 @@ import {
   faNodeJs,
   faReact,
   faAws,
-  faJsSquare,
   faGolang,
 } from "@fortawesome/free-brands-svg-icons";
 import cv_hafidz from "../assets/cv_hafidz.pdf";
@@ -53,25 +52,44 @@ const Resume = () => {
     { name: "Go • Fiber • gRPC", icon: faGolang },
     { name: "Python • FastAPI", icon: faPython },
     { name: "Node.js • Express.js", icon: faNodeJs },
-    { name: "JavaScript", icon: faJsSquare },
-    { name: "React.js", icon: faReact },
+    { name: "JavaScript • React.js", icon: faReact },
     { name: "AWS", icon: faAws },
   ];
 
   return (
     <div className="min-h-screen bg-base-100 py-10 pt-24">
       <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl">
-        {/* Header */}
         <div className=" p-8  text-center mb-12">
-          <h1 className="text-4xl font-bold text-base-content">
+          <h1 className="text-xl md:text-2xl  lg:text-4xl font-bold text-base-content">
             Muhammad Hafidz Erdityo
           </h1>
           <p className="text-lg text-base-content/70">Software Engineer</p>
         </div>
 
+        {/* Skills Section */}
+        <section className="my-12">
+          <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
+            Tech Stack
+          </h2>
+          <div className="bg-base-200 p-6 rounded-lg shadow-sm">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-base-content/70">
+              {techStackList.map((tech, index) => (
+                <li key={index} className="flex items-center space-x-2">
+                  <FontAwesomeIcon
+                    icon={tech.icon}
+                    className="text-lg lg:text-xl"
+                  />
+                  <span className="text-xs lg:text-xs">{tech.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        {/* Header */}
+
         {/* Experience Section */}
         <section className="space-y-8">
-          <h2 className="text-2xl font-semibold text-base-content mb-4">
+          <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
             Experience
           </h2>
           <div className="flex flex-col gap-5 bg-base-200 p-6 rounded-lg shadow-sm">
@@ -81,9 +99,11 @@ const Resume = () => {
                   <div className="text-xs text-base-content/70">
                     {job.company} • {job.type}
                   </div>
-                  <div className="text-xs text-base-content/70">{job.date}</div>
+                  <div className="text-xs text-base-content/70 text-right">
+                    {job.date}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-base-content mt-2">
+                <h3 className="text-md font-semibold text-base-content mt-2">
                   {job.role}
                 </h3>
                 {Array.isArray(job.description) ? (
@@ -104,7 +124,7 @@ const Resume = () => {
 
         {/* Education Section */}
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold text-base-content mb-4">
+          <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
             Education
           </h2>
           <div className="bg-base-200 p-6 rounded-lg shadow-sm">
@@ -118,28 +138,11 @@ const Resume = () => {
                     {educationVal.year_start} - {educationVal.year_end}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-base-content mt-2">
+                <h3 className="text-md font-semibold text-base-content mt-2">
                   {educationVal.degree}
                 </h3>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold text-base-content mb-4">
-            Tech Stack
-          </h2>
-          <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm text-base-content/70">
-              {techStackList.map((tech, index) => (
-                <li key={index} className="flex items-center space-x-2">
-                  <FontAwesomeIcon icon={tech.icon} className="text-xl" />
-                  <span>{tech.name}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 

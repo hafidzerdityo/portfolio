@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProjectContent from "./Resume/ProjectContent";
+import ProjectContent from "./Project/ProjectContent";
 import bjbs_bds from "../assets/ListProjects/bjbs_bds.png";
 import bjbs_cms from "../assets/ListProjects/bjbs_cms.png";
 import bjbs_crm from "../assets/ListProjects/bjbs_crm.png";
