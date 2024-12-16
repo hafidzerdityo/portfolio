@@ -110,16 +110,16 @@ const Projects = ({ setShowNav }) => {
             <div
               key={val.key}
               onClick={() => setProject(val.key)}
-              className={`flex flex-col gap-12 lg:gap-2 rounded-xl hover:shadow-lg transition-all duration-300 p-5 bg-base-200 cursor-pointer ${
+              className={`grayscale  hover:grayscale-0 hover:scale-105 flex flex-col gap-12 lg:gap-2 rounded-xl hover:shadow-lg transition-all duration-300 p-5 bg-base-200 cursor-pointer ${
                 val.is_private && "filter blur-sm"
               }`}
             >
               {/* Project Image */}
-              <div className="overflow-hidden rounded-md mb-4">
+              <div className="overflow-hidden rounded-md mb-4 ">
                 <img
                   src={val.image}
                   alt={val.name}
-                  className="grayscale rounded-md w-full h-32 object-cover object-top transition-transform duration-300 hover:scale-105"
+                  className="rounded-md w-full h-32 object-cover object-top transition-transform duration-300"
                 />
               </div>
 
