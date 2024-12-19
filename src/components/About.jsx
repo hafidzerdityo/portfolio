@@ -30,7 +30,7 @@ const About = () => {
                 href="https://t.me/hafidzerdityo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-500 hover:text-blue-700 hover:scale-105"
+                className="flex items-center gap-2 transition-all duration-300 text-base-content/70 hover:text-blue-700 hover:scale-105"
               >
                 <FontAwesomeIcon icon={faTelegram} className="text-2xl" />
                 <span>Telegram</span>
@@ -39,7 +39,7 @@ const About = () => {
                 href="https://wa.me/6282118674613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-green-500 hover:text-green-700 hover:scale-105"
+                className="flex items-center gap-2 transition-all duration-300 text-base-content/70 hover:text-green-700 hover:scale-105"
               >
                 <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
                 <span>WhatsApp</span>
