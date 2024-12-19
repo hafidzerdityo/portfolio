@@ -66,25 +66,6 @@ const Resume = () => {
           <p className="text-lg text-base-content/70">Software Engineer</p>
         </div>
 
-        {/* Skills Section */}
-        <section className="my-12">
-          <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
-            Tech Stack
-          </h2>
-          <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-base-content/70">
-              {techStackList.map((tech, index) => (
-                <li key={index} className="flex items-center space-x-2">
-                  <FontAwesomeIcon
-                    icon={tech.icon}
-                    className="text-lg lg:text-xl"
-                  />
-                  <span className="text-xs lg:text-xs">{tech.name}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
         {/* Header */}
 
         {/* Experience Section */}
@@ -143,6 +124,26 @@ const Resume = () => {
                 </h3>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Tech Stack Section */}
+        <section className="my-12">
+          <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
+            Tech Stack
+          </h2>
+          <div className="bg-base-200 p-6 rounded-lg shadow-sm">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-base-content/70">
+              {techStackList.map((tech, index) => (
+                <li key={index} className="flex items-center space-x-2">
+                  <FontAwesomeIcon
+                    icon={tech.icon}
+                    className="text-lg lg:text-xl"
+                  />
+                  <span className="text-xs lg:text-xs">{tech.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
