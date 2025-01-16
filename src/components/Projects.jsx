@@ -82,7 +82,7 @@ const Projects = ({ setShowNav }) => {
       link: null,
       date: "November 2022",
       desc: "I contributed to the development and maintenance of backend API systems for the Pospay app, a fintech application based on Giro (bank transfer). Pospay also functions as an e-wallet, enabling users to manage their financial transactions and payments. My work primarily focused on maintenance and bug fixing. The backend was developed using PHP with the Laravel framework.",
-      tag: ["PHP", "Laravel"],
+      tag: ["Python", "FastAPI"],
       is_private: false,
     },
   ];
