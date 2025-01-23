@@ -4,9 +4,10 @@ import {
   faPython,
   faNodeJs,
   faReact,
-  faAws,
+  faGoogle,
   faGolang,
 } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import cv_hafidz from "../assets/cv_hafidz.pdf";
 
 const Resume = () => {
@@ -18,6 +19,7 @@ const Resume = () => {
       type: "Full-time",
       description:
         "Developing and maintaining backend systems for the PosAjaUMKM and Pospay Super App.",
+      link: "https://www.posindonesia.co.id/en",
     },
     {
       date: "April 2023 - Present",
@@ -28,6 +30,7 @@ const Resume = () => {
         "Developing and maintaining backend systems for the BCA Syariah Core Banking System and Branch Distribution System.",
         "Developing and maintaining backend systems for the BJB Syariah Core Banking System, Branch Distribution System, CRM, CMS.",
       ],
+      link: "https://www.upwork.com/",
     },
     {
       date: "Jan 2022 - Jul 2022",
@@ -36,6 +39,7 @@ const Resume = () => {
       type: "Contract",
       description:
         "Worked on web scraping, ETL processes, data analysis, and developing an ML model for legal projects.",
+      link: "https://www.telkom.co.id/sites",
     },
   ];
 
@@ -53,7 +57,7 @@ const Resume = () => {
     { name: "Python • FastAPI", icon: faPython },
     { name: "Node.js • Express.js", icon: faNodeJs },
     { name: "JavaScript • React.js", icon: faReact },
-    { name: "AWS", icon: faAws },
+    { name: "Google Cloud Platform", icon: faGoogle },
   ];
 
   return (
@@ -77,9 +81,24 @@ const Resume = () => {
             {experienceList.map((job, index) => (
               <div key={index} className="mb-6">
                 <div className="flex justify-between gap-10">
-                  <div className="text-xs text-base-content/70">
-                    {job.company} • {job.type}
-                  </div>
+                  <a
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={job.company}
+                    className="transition-all duration-300 hover:scale-105"
+                  >
+                    <div className="text-xs text-base-content/70">
+                      <span className="font-bold italic mr-1">
+                        {job.company}
+                      </span>
+                      <span className=" cursor-pointer">
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </span>{" "}
+                      • {job.type}
+                    </div>
+                  </a>
+
                   <div className="text-xs text-base-content/70 text-right">
                     {job.date}
                   </div>
