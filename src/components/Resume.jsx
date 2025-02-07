@@ -4,7 +4,7 @@ import {
   faPython,
   faNodeJs,
   faReact,
-  faGoogle,
+  faAws,
   faGolang,
 } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
@@ -57,7 +57,7 @@ const Resume = () => {
     { name: "Python • FastAPI", icon: faPython },
     { name: "Node.js • Express.js", icon: faNodeJs },
     { name: "JavaScript • React.js", icon: faReact },
-    { name: "Google Cloud Platform", icon: faGoogle },
+    { name: "Amazon Web Service", icon: faAws },
   ];
 
   return (
