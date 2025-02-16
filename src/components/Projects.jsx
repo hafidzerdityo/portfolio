@@ -7,6 +7,8 @@ import posaja_umkm from "../assets/ListProjects/posaja_umkm.png";
 import pos_psl from "../assets/ListProjects/pos_psl.png";
 import pospay_superapp from "../assets/ListProjects/pospay_superapp.png";
 
+import AnimatedContent from "../utils/animations/AnimatedContent";
+
 const Projects = ({ setShowNav }) => {
   const [project, setProject] = useState(null);
   const projectList = [
@@ -103,59 +105,73 @@ const Projects = ({ setShowNav }) => {
   }
 
   return (
-    <div className="min-h-screen bg-base-100 pb-10 pt-48">
-      <div className="container text-xs lg:text-md mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl flex flex-col gap-12 lg:gap-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectList.map((val) => (
-            <div
-              key={val.key}
-              onClick={() => setProject(val.key)}
-              className={`grayscale  hover:grayscale-0 hover:scale-105 flex flex-col gap-12 lg:gap-2 rounded-xl hover:shadow-lg transition-all duration-300 p-5 bg-base-200 cursor-pointer ${
-                val.is_private && "filter blur-sm"
-              }`}
-            >
-              {/* Project Image */}
-              <div className="overflow-hidden rounded-md mb-4 ">
-                <img
-                  src={val.image}
-                  alt={val.name}
-                  className="rounded-md w-full h-32 object-cover object-top transition-transform duration-300"
-                />
-              </div>
+    <>
+      <AnimatedContent
+        distance={150}
+        direction="horizontal"
+        reverse={false}
+        config={{ tension: 80, friction: 20 }}
+        initialOpacity={0.2}
+        animateOpacity
+        scale={1.1}
+        threshold={0.2}
+      >
+        <div className="min-h-screen bg-base-100 pb-10 pt-48">
+          <div className="container text-xs lg:text-md mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl flex flex-col gap-12 lg:gap-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projectList.map((val) => (
+                // card
+                <div
+                  key={val.key}
+                  onClick={() => setProject(val.key)}
+                  className={`grayscale  hover:grayscale-0 hover:scale-105 flex flex-col gap-12 lg:gap-2 rounded-xl hover:shadow-lg transition-all duration-300 p-5 bg-base-200 cursor-pointer ${
+                    val.is_private && "filter blur-sm"
+                  }`}
+                >
+                  {/* Project Image */}
+                  <div className="overflow-hidden rounded-md mb-4 ">
+                    <img
+                      src={val.image}
+                      alt={val.name}
+                      className="rounded-md w-full h-32 object-cover object-top transition-transform duration-300"
+                    />
+                  </div>
 
-              {/* Project Details */}
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-base-content">
-                  {val.name}
-                </h3>
-                <p className="text-xs text-base-content/70">
-                  {val.title} <span className="text-base-500">&bull;</span>{" "}
-                  {val.year}
-                </p>
-              </div>
-              <div className="flex-grow">
-                <p className="mt-2  text-base-content">
-                  {val.desc.length > 100
-                    ? `${val.desc.substring(0, 100)}...`
-                    : val.desc}
-                </p>
-              </div>
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {val.tag.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="font-medium text-base-600 bg-base-300 px-2 py-1 rounded-lg"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                  {/* Project Details */}
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-semibold text-base-content">
+                      {val.name}
+                    </h3>
+                    <p className="text-xs text-base-content/70">
+                      {val.title} <span className="text-base-500">&bull;</span>{" "}
+                      {val.year}
+                    </p>
+                  </div>
+                  <div className="flex-grow">
+                    <p className="mt-2  text-base-content">
+                      {val.desc.length > 100
+                        ? `${val.desc.substring(0, 100)}...`
+                        : val.desc}
+                    </p>
+                  </div>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {val.tag.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="font-medium text-base-600 bg-base-300 px-2 py-1 rounded-lg"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </AnimatedContent>
+    </>
   );
 };
 

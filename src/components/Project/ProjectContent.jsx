@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import BlurText from "../../utils/animations/BlurText";
 
 const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
   const selectedProject = projectList.find(
@@ -22,7 +23,14 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
 
         <div className="flex flex-col items-center gap-10 lg:flex-row  ">
           <div className="flex flex-col gap-4 text-center lg:text-left ">
-            <h1 className="text-3xl font-bold">{selectedProject.title}</h1>
+            <h1 className="text-3xl font-bold">
+              <BlurText
+                text={selectedProject.title}
+                delay={150}
+                animateBy="words"
+                direction="top"
+              />
+            </h1>
             <div className="flex flex-col items-center gap-4 lg:flex-row">
               <a
                 href={selectedProject.link}
