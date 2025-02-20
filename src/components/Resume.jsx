@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPython,
@@ -7,12 +7,27 @@ import {
   faAws,
   faGolang,
 } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import FadeContent from "../utils/animations/FadeContent";
+import {
+  faArrowUpRightFromSquare,
+  faGhost,
+} from "@fortawesome/free-solid-svg-icons";
 
+import FadeContent from "../utils/animations/FadeContent";
 import cv_hafidz from "../assets/cv_hafidz.pdf";
+import cv_hafidz2 from "../assets/cv_hafidz2.pdf";
 
 const Resume = () => {
+  const [clickCount, setClickCount] = useState(0);
+  const [isUpdated, setIsUpdated] = useState(false);
+
+  const handleHiddenButtonClick = () => {
+    setClickCount((prev) => {
+      if (prev + 1 === 3) {
+        setIsUpdated(true);
+      }
+      return prev + 1;
+    });
+  };
   const experienceList = [
     {
       date: "Nov 2022 - Present",
@@ -26,13 +41,15 @@ const Resume = () => {
     {
       date: "April 2023 - Present",
       role: "Backend Engineer",
-      company: "Upwork",
+      company: isUpdated ? "Ihsan Solusi" : "Upwork",
       type: "Freelance",
       description: [
         "Developing and maintaining backend systems for the BCA Syariah Core Banking System and Branch Distribution System.",
         "Developing and maintaining backend systems for the BJB Syariah Core Banking System, Branch Distribution System, CRM, CMS.",
       ],
-      link: "https://www.upwork.com/",
+      link: isUpdated
+        ? "https://ihsansolusi.co.id/"
+        : "https://www.upwork.com/",
     },
     {
       date: "Jan 2022 - Jul 2022",
@@ -70,7 +87,15 @@ const Resume = () => {
         easing="ease-out"
         initialOpacity={0}
       >
-        <div className="min-h-screen bg-base-100 py-10 pt-24">
+        <div className="min-h-screen bg-base-100 py-10 pt-24 relative">
+          <div className="absolute top-32 right-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <button
+              className="p-2 bg-gray-800 text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-200"
+              onClick={handleHiddenButtonClick}
+            >
+              <FontAwesomeIcon icon={faGhost} />
+            </button>
+          </div>
           <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl">
             <div className=" p-8  text-center mb-12">
               <h1 className="text-xl md:text-2xl  lg:text-4xl font-bold text-base-content">
@@ -177,7 +202,11 @@ const Resume = () => {
 
             {/* Download Resume Button */}
             <div className="mt-12 flex justify-center">
-              <a href={cv_hafidz} download className="btn btn-neutral btn-wide">
+              <a
+                href={isUpdated ? cv_hafidz2 : cv_hafidz}
+                download
+                className="btn btn-neutral btn-wide"
+              >
                 Download Full Resume
               </a>
             </div>

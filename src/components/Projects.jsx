@@ -6,26 +6,27 @@ import bcas_bds from "../assets/ListProjects/bcas_bds.png";
 import posaja_umkm from "../assets/ListProjects/posaja_umkm.png";
 import pos_psl from "../assets/ListProjects/pos_psl.png";
 import pospay_superapp from "../assets/ListProjects/pospay_superapp.png";
+import FadeContent from "../utils/animations/FadeContent";
 
 import AnimatedContent from "../utils/animations/AnimatedContent";
 
 const Projects = ({ setShowNav }) => {
   const [project, setProject] = useState(null);
   const projectList = [
-    {
-      image: pos_psl,
-      year: "2024",
-      name: "Pos Smart Logistics",
-      key: "pos_psl",
-      title: "Pos Smart Logistics",
-      link: "https://smart-logistik-pita.netlify.app/",
-      date: "October 2024",
+    // {
+    //   image: pos_psl,
+    //   year: "2024",
+    //   name: "Pos Smart Logistics",
+    //   key: "pos_psl",
+    //   title: "Pos Smart Logistics",
+    //   link: "https://smart-logistik-pita.netlify.app/",
+    //   date: "October 2024",
 
-      desc: "This Frontend Prototype was created for the Grand Final of the Pos Indonesia Innovation Award (PITA) 2024, showcasing the 'Pos Smart Logistics' system. It demonstrates an end-to-end logistics solution, including features such as transportation selection, LLM based chat bot, real-time shipment tracking, and seamless integration with user inventory. Built using React.js and DaisyUI, the prototype offers a modern and intuitive user experience. To explore the app via the provided link, log in with 'admin' as both the username and password.",
+    //   desc: "This Frontend Prototype was created for the Grand Final of the Pos Indonesia Innovation Award (PITA) 2024, showcasing the 'Pos Smart Logistics' system. It demonstrates an end-to-end logistics solution, including features such as transportation selection, LLM based chat bot, real-time shipment tracking, and seamless integration with user inventory. Built using React.js and DaisyUI, the prototype offers a modern and intuitive user experience. To explore the app via the provided link, log in with 'admin' as both the username and password.",
 
-      tag: ["React.js", "DaisyUI"],
-      is_private: false,
-    },
+    //   tag: ["React.js", "DaisyUI"],
+    //   is_private: false,
+    // },
     {
       image: posaja_umkm,
       year: "2024",
@@ -106,19 +107,15 @@ const Projects = ({ setShowNav }) => {
 
   return (
     <>
-      <AnimatedContent
-        distance={150}
-        direction="horizontal"
-        reverse={false}
-        config={{ tension: 80, friction: 20 }}
-        initialOpacity={0.2}
-        animateOpacity
-        scale={1.1}
-        threshold={0.2}
+      <FadeContent
+        blur={true}
+        duration={1000}
+        easing="ease-out"
+        initialOpacity={0}
       >
         <div className="min-h-screen bg-base-100 pb-10 pt-48">
           <div className="container text-xs lg:text-md mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl flex flex-col gap-12 lg:gap-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projectList.map((val) => (
                 // card
                 <div
@@ -139,23 +136,23 @@ const Projects = ({ setShowNav }) => {
 
                   {/* Project Details */}
                   <div className="flex-grow">
-                    <h3 className="text-lg font-semibold text-base-content">
+                    <h3 className="text-xs md:text-lg font-semibold text-base-content">
                       {val.name}
                     </h3>
-                    <p className="text-xs text-base-content/70">
+                    <p className="hidden md:block text-xs text-base-content/70">
                       {val.title} <span className="text-base-500">&bull;</span>{" "}
                       {val.year}
                     </p>
                   </div>
-                  <div className="flex-grow">
+                  {/* <div className="hidden md:flex flex-grow">
                     <p className="mt-2  text-base-content">
                       {val.desc.length > 100
                         ? `${val.desc.substring(0, 100)}...`
                         : val.desc}
                     </p>
-                  </div>
+                  </div> */}
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="hidden md:flex flex-wrap gap-2 mt-4">
                     {val.tag.map((tag, index) => (
                       <span
                         key={index}
@@ -170,7 +167,7 @@ const Projects = ({ setShowNav }) => {
             </div>
           </div>
         </div>
-      </AnimatedContent>
+      </FadeContent>
     </>
   );
 };
