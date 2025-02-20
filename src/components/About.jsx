@@ -11,7 +11,7 @@ const About = () => {
         <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-2xl flex flex-col gap-12 lg:gap-20">
           <div className="text-xs w-full">
             <DecryptedText
-              text="the name is muhammad hafidz erdityo. i am a software engineer with 2 years of industry experience, specializing in backend engineering. i have significant expertise in developing scalable backend solutions for fintech, particularly sharia-compliant banking systems, contributing to major projects such as bca syariah and bjb syariah core banking system, pospay superapp, and posaja umkm."
+              text="the name is muhammad hafidz erdityo. i am a software engineer based in indonesia 🇮🇩 with 2 years of industry experience, specializing in backend engineering. i have significant expertise in developing scalable backend solutions for indonesian banking, particularly sharia-compliant banking systems, contributing to major projects such as bca syariah and bjb syariah core banking system, pospay superapp, and posaja umkm."
               speed={3}
               animateOn="view"
               sequential={true}
