@@ -31,11 +31,16 @@ const Resume = () => {
   const experienceList = [
     {
       date: "Nov 2022 - Present",
-      role: "Backend Engineer",
+      role: "Backend Engineer / ML Engineer",
       company: "Pos Indonesia",
       type: "Full-time",
-      description:
-        "Developing and maintaining backend systems for the PosAjaUMKM and Pospay Super App.",
+      description: [
+        "Working on backend development for the PosAjaUMKM project using Go Fiber.",
+        "Managing and maintaining the backend for the PosPay app using Python FastAPI.",
+        "Developed a Face and House Detection using YOLOv8 with Python FastAPI",
+        "Developed a Face Similiarity API for the Pos Giro Cash App.",
+        "Developed ML Service for KTP OCR using AWS Textract.",
+      ],
       link: "https://www.posindonesia.co.id/en",
     },
     {

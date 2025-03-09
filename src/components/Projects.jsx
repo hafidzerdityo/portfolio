@@ -7,26 +7,40 @@ import posaja_umkm from "../assets/ListProjects/posaja_umkm.png";
 import pos_psl from "../assets/ListProjects/pos_psl.png";
 import pospay_superapp from "../assets/ListProjects/pospay_superapp.png";
 import FadeContent from "../utils/animations/FadeContent";
+import face_sim from "../assets/ListProjects/face_sim.png";
+import house_det from "../assets/ListProjects/house_det.png";
+import ocr_textract from "../assets/ListProjects/ocr_textract.png";
 
 import AnimatedContent from "../utils/animations/AnimatedContent";
 
 const Projects = ({ setShowNav }) => {
   const [project, setProject] = useState(null);
   const projectList = [
-    // {
-    //   image: pos_psl,
-    //   year: "2024",
-    //   name: "Pos Smart Logistics",
-    //   key: "pos_psl",
-    //   title: "Pos Smart Logistics",
-    //   link: "https://smart-logistik-pita.netlify.app/",
-    //   date: "October 2024",
+    {
+      image: house_det,
+      year: "2025",
+      name: "House Detection",
+      key: "house_det",
+      title: "House Detection System",
+      link: "https://github.com/hafidzerdityo/object-detection-api",
+      date: "March 2023",
+      desc: "Retrained YOLOV8 using a custom dataset for a house detection system that identifies and classifies houses for the POS IND Bantuan Sosial Project. The project utilized Python and YOLOV8 for image classification.",
+      tag: ["Python", "PyTorch", "YOLOV8", "FastAPI"],
+      is_private: false,
+    },
 
-    //   desc: "This Frontend Prototype was created for the Grand Final of the Pos Indonesia Innovation Award (PITA) 2024, showcasing the 'Pos Smart Logistics' system. It demonstrates an end-to-end logistics solution, including features such as transportation selection, LLM based chat bot, real-time shipment tracking, and seamless integration with user inventory. Built using React.js and DaisyUI, the prototype offers a modern and intuitive user experience. To explore the app via the provided link, log in with 'admin' as both the username and password.",
-
-    //   tag: ["React.js", "DaisyUI"],
-    //   is_private: false,
-    // },
+    {
+      image: ocr_textract,
+      year: "2025",
+      name: "OCR Textract",
+      key: "ocr_textract",
+      title: "KTP (Indonesian National ID) OCR using AWS Textract",
+      link: null,
+      date: "March 2023",
+      desc: "Implemented an OCR system using AWS Textract to extract text KTP (Indonesian National ID) and regex it into readable JSON format. The system was developed with Python and AWS Textract.",
+      tag: ["Python", "FastAPI", "AWS Textract", "OCR"],
+      is_private: false,
+    },
     {
       image: posaja_umkm,
       year: "2024",
@@ -47,7 +61,7 @@ const Projects = ({ setShowNav }) => {
       title: "Bank BJB Syariah Integrated Financing Originating System",
       link: null,
       date: "May 2024",
-      desc: "I contributed to the backend API systems for the standalone BJBS Financing app, which handles the management of financing accounts. This includes creating and overseeing various types of financing, such as Murabahah, Qardh, Musyarakah, and Ijarah. The app was developed using Python with the FastAPI framework.",
+      desc: "I contributed to the backend API systems for the standalone BJBS Financing Syariah app, designed specifically for BJB employees. This app handles the management of financing accounts, including creating and overseeing various types of financing such as Murabahah, Qardh, Musyarakah, and Ijarah. The app was developed using Python with the FastAPI framework.",
       tag: ["Python", "FastAPI", "Docker"],
       is_private: false,
     },
@@ -144,13 +158,6 @@ const Projects = ({ setShowNav }) => {
                       {val.year}
                     </p>
                   </div>
-                  {/* <div className="hidden md:flex flex-grow">
-                    <p className="mt-2  text-base-content">
-                      {val.desc.length > 100
-                        ? `${val.desc.substring(0, 100)}...`
-                        : val.desc}
-                    </p>
-                  </div> */}
                   {/* Tags */}
                   <div className="hidden md:flex flex-wrap gap-2 mt-4">
                     {val.tag.map((tag, index) => (
