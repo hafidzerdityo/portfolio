@@ -95,9 +95,9 @@ const Resume = () => {
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
         {/* Experience Section */}
         <section className="space-y-6 lg:space-y-8 mb-12 lg:mb-16">
-          <h2 className="text-xl lg:text-2xl font-bold text-primary flex items-center gap-2 pb-2 border-b border-base-300">
+          <h1 className="text-2xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Experience
-          </h2>
+          </h1>
           <div className="space-y-6 lg:space-y-8">
             {experienceList.map((job, index) => (
               <div

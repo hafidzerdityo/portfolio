@@ -193,21 +193,16 @@ const Projects = ({ setShowNav }) => {
               >
                 <div
                   onClick={() => setProject(val.key)}
-                  className="group h-full bg-base-200 hover:bg-base-300 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+                  className="group h-full bg-base-200 hover:bg-base-300 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 cursor-pointer"
                 >
                   {/* Project Thumbnail */}
                   <div className="relative overflow-hidden h-40 lg:h-48">
-                    <div className="absolute inset-0 bg-gradient-to-t from-base-300/80 to-transparent z-10" />
+                    <div className="absolute inset-0 z-10" />
                     <img
                       src={val.thumbnail}
                       alt={val.name}
-                      className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center transform"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 lg:p-4 z-20">
-                      <p className="text-xs lg:text-sm font-medium text-base-content/70">
-                        {val.year}
-                      </p>
-                    </div>
                   </div>
 
                   {/* Project Details */}
@@ -216,7 +211,7 @@ const Projects = ({ setShowNav }) => {
                       {val.name}
                     </h3>
                     <p className="text-xs lg:text-sm text-base-content/70 line-clamp-2 mb-3 lg:mb-4">
-                      {val.title}
+                      {val.title} • {val.year}
                     </p>
 
                     {/* Tags */}

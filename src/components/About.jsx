@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTelegram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import {
   faCode,
   faBuilding,
   faCalendarDays,
+  faEnvelope,
+  faCopy,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import DecryptedText from "../utils/animations/DecryptedText";
 import AnimatedContent from "../utils/animations/AnimatedContent";
@@ -15,6 +18,18 @@ import posind_logo from "../assets/ClientLogo/posind_logo.png";
 import bcas_logo from "../assets/ClientLogo/bcas_logo.png";
 
 const About = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("hafidze15@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
   const stats = [
     {
       icon: faCalendarDays,
@@ -72,9 +87,9 @@ const About = () => {
           <div className="prose prose-sm">
             <p className="text-sm lg:text-base leading-relaxed">
               Software engineer with 2+ years of industry experience,
-              specializing in building robust and scalable backend systems. My
-              expertise lies in developing enterprise-level solutions,
-              particularly in the banking sector.
+              specializing in building backend systems. My expertise lies in
+              developing fintech solutions, particularly in the sharia banking
+              sector.
             </p>
 
             <div className="mt-6">
@@ -104,7 +119,8 @@ const About = () => {
                     API Development
                   </span>
                   <span className="text-sm">
-                    Creation of robust and secure REST APIs
+                    Building high-performance APIs with FastAPI, Go Fiber, or
+                    just any framework
                   </span>
                 </li>
               </ul>
@@ -195,18 +211,27 @@ const About = () => {
               />
               <span>Telegram</span>
             </a>
-            <a
-              href="https://wa.me/6282118674613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary btn-outline gap-2 hover:scale-105 flex-1 sm:flex-none"
-            >
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-base-200">
               <FontAwesomeIcon
-                icon={faWhatsapp}
-                className="text-lg lg:text-xl"
+                icon={faEnvelope}
+                className="text-primary text-lg"
               />
-              <span>WhatsApp</span>
-            </a>
+              <span className="text-base-content select-all">
+                hafidze15@gmail.com
+              </span>
+              <button
+                onClick={handleCopyEmail}
+                className=" ml-2 p-1.5 rounded-md hover:bg-base-300 transition-colors"
+                title="Copy to clipboard"
+              >
+                <FontAwesomeIcon
+                  icon={copied ? faCheck : faCopy}
+                  className={`text-sm text-primary ${
+                    copied ? "text-success" : "text-base-content/70"
+                  }`}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
