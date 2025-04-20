@@ -31,15 +31,13 @@ const Resume = () => {
   const experienceList = [
     {
       date: "Nov 2022 - Present",
-      role: "Backend Engineer / ML Engineer",
+      role: "Backend Engineer",
       company: "Pos Indonesia",
       type: "Full-time",
       description: [
         "Working on backend development for the PosAjaUMKM project using Go Fiber.",
         "Managing and maintaining the backend for the PosPay app using Python FastAPI.",
-        "Developed a Face and House Detection using YOLOv8 with Python FastAPI",
-        "Developed a Face Similiarity API for the Pos Giro Cash App.",
-        "Developed ML Service for KTP OCR using AWS Textract.",
+        "Developed and deployed multiple computer vision model using PyTorch and FastAPI",
       ],
       link: "https://www.posindonesia.co.id/en",
     },
@@ -47,10 +45,10 @@ const Resume = () => {
       date: "April 2023 - Present",
       role: "Backend Engineer",
       company: isUpdated ? "Ihsan Solusi" : "Upwork",
-      type: "Freelance",
+      type: "Part-Time",
       description: [
         "Developing and maintaining backend systems for the BCA Syariah Core Banking System and Branch Distribution System.",
-        "Developing and maintaining backend systems for the BJB Syariah Core Banking System, Branch Distribution System, CRM, CMS.",
+        "Developing and maintaining backend systems for the BJB Syariah Core Banking System, Branch Distribution System API, Mobile Banking API, Customer relationship Management, Cash Management System.",
       ],
       link: isUpdated
         ? "https://ihsansolusi.co.id/"
@@ -85,140 +83,144 @@ const Resume = () => {
   ];
 
   return (
-    <>
-      <FadeContent
-        blur={true}
-        duration={1000}
-        easing="ease-out"
-        initialOpacity={0}
-      >
-        <div className="min-h-screen bg-base-100 py-10 pt-24 relative">
-          <div className="absolute top-32 right-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
-            <button
-              className="p-2 bg-gray-800 text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-200"
-              onClick={handleHiddenButtonClick}
-            >
-              <FontAwesomeIcon icon={faGhost} />
-            </button>
-          </div>
-          <div className="container mx-auto px-10 sm:px-8 lg:px-8 max-w-4xl">
-            <div className=" p-8  text-center mb-12">
-              <h1 className="text-xl md:text-2xl  lg:text-4xl font-bold text-base-content">
-                Muhammad Hafidz Erdityo
-              </h1>
-              <p className="text-lg text-base-content/70">Software Engineer</p>
-            </div>
-
-            {/* Header */}
-
-            {/* Experience Section */}
-            <section className="space-y-8">
-              <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
-                Experience
-              </h2>
-              <div className="flex flex-col gap-5 bg-base-200 p-6 rounded-lg shadow-sm">
-                {experienceList.map((job, index) => (
-                  <div key={index} className="mb-6">
-                    <div className="flex justify-between gap-10">
+    <div className="min-h-screen bg-base-100 py-6 lg:py-10 pt-20 lg:pt-24 relative">
+      <div className="absolute top-32 right-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+        <button
+          className="p-2 bg-base-300 text-base-content rounded-full shadow-lg hover:scale-110 transition-transform duration-200"
+          onClick={handleHiddenButtonClick}
+        >
+          <FontAwesomeIcon icon={faGhost} />
+        </button>
+      </div>
+      <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
+        {/* Experience Section */}
+        <section className="space-y-6 lg:space-y-8 mb-12 lg:mb-16">
+          <h2 className="text-xl lg:text-2xl font-bold text-primary flex items-center gap-2 pb-2 border-b border-base-300">
+            Experience
+          </h2>
+          <div className="space-y-6 lg:space-y-8">
+            {experienceList.map((job, index) => (
+              <div
+                key={index}
+                className="card bg-base-200 shadow-md lg:shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="card-body p-4 lg:p-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4">
+                    <div>
+                      <h3 className="card-title text-base lg:text-lg mb-1">
+                        {job.role}
+                      </h3>
                       <a
                         href={job.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={job.company}
-                        className="transition-all duration-300 hover:scale-105"
+                        className="text-sm text-secondary hover:text-secondary/70 transition-colors flex items-center gap-1"
                       >
-                        <div className="text-xs text-base-content/70">
-                          <span className="font-bold italic mr-1">
-                            {job.company}
-                          </span>
-                          <span className=" cursor-pointer">
-                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                          </span>{" "}
-                          • {job.type}
-                        </div>
+                        <span className="font-medium">{job.company}</span>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          className="text-xs"
+                        />
                       </a>
-
-                      <div className="text-xs text-base-content/70 text-right">
+                    </div>
+                    <div className="text-left sm:text-right">
+                      <div className="badge badge-primary badge-sm lg:badge-md">
+                        {job.type}
+                      </div>
+                      <div className="text-xs lg:text-sm text-base-content/70 mt-1">
                         {job.date}
                       </div>
                     </div>
-                    <h3 className="text-md font-semibold text-base-content mt-2">
-                      {job.role}
-                    </h3>
-                    {Array.isArray(job.description) ? (
-                      <ul className="list-disc pl-5 mt-2 text-sm text-base-content/70">
-                        {job.description.map((desc, idx) => (
-                          <li key={idx}>{desc}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="mt-2 text-sm text-base-content/70">
-                        {job.description}
-                      </p>
-                    )}
                   </div>
-                ))}
+                  <div className="divider my-2"></div>
+                  {Array.isArray(job.description) ? (
+                    <ul className="space-y-2 text-xs lg:text-sm text-base-content/70">
+                      {job.description.map((desc, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5"></div>
+                          <span>{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-xs lg:text-sm text-base-content/70">
+                      {job.description}
+                    </p>
+                  )}
+                </div>
               </div>
-            </section>
-
-            {/* Education Section */}
-            <section className="mt-12">
-              <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
-                Education
-              </h2>
-              <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-                {educationList.map((educationVal) => (
-                  <div className="my-4">
-                    <div className="flex justify-between">
-                      <p className="text-xs text-base-content/70">
-                        {educationVal.university_name}
-                      </p>
-                      <span className="text-xs text-base-content/70">
-                        {educationVal.year_start} - {educationVal.year_end}
-                      </span>
-                    </div>
-                    <h3 className="text-md font-semibold text-base-content mt-2">
-                      {educationVal.degree}
-                    </h3>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Tech Stack Section */}
-            <section className="my-12">
-              <h2 className="text-lg lg:text-2xl font-semibold text-base-content mb-4">
-                Tech Stack
-              </h2>
-              <div className="bg-base-200 p-6 rounded-lg shadow-sm">
-                <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-base-content/70">
-                  {techStackList.map((tech, index) => (
-                    <li key={index} className="flex items-center space-x-2">
-                      <FontAwesomeIcon
-                        icon={tech.icon}
-                        className="text-lg lg:text-xl"
-                      />
-                      <span className="text-xs lg:text-xs">{tech.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            {/* Download Resume Button */}
-            <div className="mt-12 flex justify-center">
-              <a
-                href={isUpdated ? cv_hafidz2 : cv_hafidz}
-                download
-                className="btn btn-neutral btn-wide"
-              >
-                Download Full Resume
-              </a>
-            </div>
+            ))}
           </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="mb-12 lg:mb-16">
+          <h2 className="text-xl lg:text-2xl font-bold text-primary flex items-center gap-2 pb-2 border-b border-base-300 mb-6 lg:mb-8">
+            Education
+          </h2>
+          {educationList.map((education, index) => (
+            <div
+              key={index}
+              className="card bg-base-200 shadow-md lg:shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="card-body p-4 lg:p-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                  <div>
+                    <h3 className="card-title text-base lg:text-lg mb-1">
+                      {education.degree}
+                    </h3>
+                    <p className="text-sm text-secondary">
+                      {education.university_name}
+                    </p>
+                  </div>
+                  <div className="badge badge-secondary badge-sm lg:badge-md">
+                    {education.year_start} - {education.year_end}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        {/* Tech Stack Section */}
+        <section className="mb-12 lg:mb-16">
+          <h2 className="text-xl lg:text-2xl font-bold text-primary flex items-center gap-2 pb-2 border-b border-base-300 mb-6 lg:mb-8">
+            Tech Stack
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+            {techStackList.map((tech, index) => (
+              <div
+                key={index}
+                className="card bg-base-200 shadow-md lg:shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="card-body flex-row items-center gap-3 p-3 lg:p-4">
+                  <div className="bg-primary/10 p-2 rounded-lg">
+                    <FontAwesomeIcon
+                      icon={tech.icon}
+                      className="text-lg lg:text-xl text-primary"
+                    />
+                  </div>
+                  <span className="text-xs lg:text-sm font-medium">
+                    {tech.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Download Resume Button */}
+        <div className="flex justify-center">
+          <a
+            href={isUpdated ? cv_hafidz2 : cv_hafidz}
+            download
+            className="btn btn-primary hover:btn-secondary transition-colors w-full sm:w-auto"
+          >
+            Download Full Resume
+          </a>
         </div>
-      </FadeContent>
-    </>
+      </div>
+    </div>
   );
 };
 

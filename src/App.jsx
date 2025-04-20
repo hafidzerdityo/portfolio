@@ -5,7 +5,7 @@ import Resume from "./components/Resume";
 import Projects from "./components/Projects";
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [menu, setMenu] = useState("about");
   const [showNav, setShowNav] = useState(true);
 
