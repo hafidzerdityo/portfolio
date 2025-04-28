@@ -86,10 +86,13 @@ const About = () => {
 
           <div className="prose prose-sm">
             <p className="text-sm lg:text-base leading-relaxed">
-              Software engineer with 2+ years of industry experience,
-              specializing in building backend systems. My expertise lies in
-              developing fintech solutions, particularly in the sharia banking
-              sector.
+              I'm a Software Engineer with 2+ years of specialized experience in
+              Backend Engineering, building microservices for fintech
+              applications including sharia-compliant banking systems for major
+              institutions like Bank BCA Syariah, Bank BJB Syariah, and national
+              platform Pospay Superapp and PosAjaUMKM. Beyond backend
+              engineering, I'm currently expanding my knowledge in Machine
+              Learning and Blockchain.
             </p>
 
             <div className="mt-6">
