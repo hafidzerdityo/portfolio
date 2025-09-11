@@ -27,47 +27,43 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
           >
             <FontAwesomeIcon
               icon={faArrowLeft}
-              className="text-sm lg:text-base text-primary group-hover:-translate-x-1 transition-transform"
+              className="text-sm lg:text-base text-base-content group-hover:-translate-x-1 transition-transform"
             />
             <span className="text-sm lg:text-base">Back</span>
           </button>
 
           {/* Project Header */}
           <div className="space-y-6 lg:space-y-8 mb-8 lg:mb-12">
-            <div className="space-y-4">
-              <h1 className="text-2xl lg:text-3xl font-bold">
-                <BlurText
-                  text={selectedProject.title}
-                  delay={150}
-                  animateBy="words"
-                  direction="top"
-                />
-              </h1>
+            <h1 className="text-2xl lg:text-3xl font-bold text-base-content">
+              <BlurText
+                text={selectedProject.title}
+                delay={150}
+                animateBy="words"
+                direction="top"
+              />
+            </h1>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm lg:text-base">
-                {selectedProject.link ? (
-                  <a
-                    href={selectedProject.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-                  >
-                    <FontAwesomeIcon
-                      icon={faLink}
-                      className="text-xs lg:text-sm"
-                    />
-                    <span>View Project</span>
-                  </a>
-                ) : (
-                  <span className="text-base-content/60">
-                    Private Repository
-                  </span>
-                )}
-                <span className="hidden sm:block text-base-content/40">•</span>
-                <span className="text-base-content/60">
-                  {selectedProject.date}
-                </span>
-              </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm lg:text-base">
+              {selectedProject.link ? (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-base-content hover:text-base-content/70 transition-colors"
+                >
+                  <FontAwesomeIcon
+                    icon={faLink}
+                    className="text-xs lg:text-sm"
+                  />
+                  <span>View Project</span>
+                </a>
+              ) : (
+                <span className="text-base-content/60">Private Repository</span>
+              )}
+              <span className="hidden sm:block text-base-content/40">•</span>
+              <span className="text-base-content/60">
+                {selectedProject.date}
+              </span>
             </div>
 
             <p className="text-sm lg:text-base text-base-content/80 leading-relaxed">
@@ -84,7 +80,7 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
                   {tag.icon && (
                     <FontAwesomeIcon
                       icon={tag.icon}
-                      className="text-xs lg:text-sm text-primary"
+                      className="text-xs lg:text-sm"
                     />
                   )}
                   {tag.name}
@@ -111,8 +107,9 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
                           selectedProject.is_private ? "filter blur-sm" : ""
                         }`}
                       />
+
                       {selectedProject.content_images.length > 1 && (
-                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
                           <a
                             href={`#slide${
                               index === 0

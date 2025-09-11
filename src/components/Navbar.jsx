@@ -7,37 +7,37 @@ const Navbar = ({ theme, toggleTheme, menu, setMenu }) => {
   const menuList = ["about", "resume", "projects"];
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm">
-      <div className="navbar bg-base-100/80 sm:px-2 md:px-8 lg:px-[9.375rem]">
-        {/* Left Section */}
+    <div className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm bg-base-100/80 shadow-sm">
+      <div className="navbar sm:px-2 md:px-8 lg:px-[9.375rem]">
+        {/* Left: Theme toggle */}
         <div className="navbar-start">
           <button
-            className="btn btn-circle btn-ghost hover:bg-base-200"
             onClick={toggleTheme}
             aria-label="Toggle Theme"
+            className="btn btn-circle btn-ghost hover:bg-base-200 transition-colors"
           >
             <FontAwesomeIcon
               icon={theme === "light" ? faSun : faMoon}
-              className="text-xl text-primary"
+              className="text-xl text-base-content"
             />
           </button>
         </div>
 
-        {/* Center Section */}
+        {/* Center: Menu */}
         <div className="navbar-center">
           <div className="flex gap-1 p-1 bg-base-200 rounded-xl">
             {menuList.map((val) => (
               <button
                 key={val}
+                onClick={() => setMenu(val)}
                 className={`
-                  btn btn-sm min-h-8 h-8 px-4 rounded-lg capitalize transition-all duration-300
+                  btn btn-sm h-8 px-4 rounded-lg capitalize transition-all duration-300
                   ${
                     menu === val
-                      ? "btn-primary text-primary-content shadow-lg"
+                      ? "bg-base-300 text-base-content shadow-md"
                       : "btn-ghost hover:bg-base-300"
                   }
                 `}
-                onClick={() => setMenu(val)}
               >
                 {val}
               </button>
@@ -45,37 +45,33 @@ const Navbar = ({ theme, toggleTheme, menu, setMenu }) => {
           </div>
         </div>
 
-        {/* Right Section */}
-        <div className="navbar-end">
-          <div className="flex gap-2">
-            <a
-              href="https://www.linkedin.com/in/muhammad-hafidz-erdityo-024a1a206/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-circle btn-ghost hover:bg-base-200"
-              aria-label="LinkedIn"
-            >
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                size="2x"
-                className="text-xl text-primary hover:scale-110 transition-transform"
-              />
-            </a>
+        {/* Right: Social */}
+        <div className="navbar-end flex gap-2">
+          <a
+            href="https://www.linkedin.com/in/muhammad-hafidz-erdityo-024a1a206/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="btn btn-circle btn-ghost hover:bg-base-200 transition-colors"
+          >
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className="text-xl text-base-content hover:scale-110 transition-transform"
+            />
+          </a>
 
-            <a
-              href="https://github.com/hafidzerdityo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-circle btn-ghost hover:bg-base-200"
-              aria-label="GitHub"
-            >
-              <FontAwesomeIcon
-                icon={faGithub}
-                size="2x"
-                className="text-xl text-primary hover:scale-110 transition-transform"
-              />
-            </a>
-          </div>
+          <a
+            href="https://github.com/hafidzerdityo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="btn btn-circle btn-ghost hover:bg-base-200 transition-colors"
+          >
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="text-xl text-base-content hover:scale-110 transition-transform"
+            />
+          </a>
         </div>
       </div>
     </div>
