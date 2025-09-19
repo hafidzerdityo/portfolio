@@ -36,7 +36,7 @@ const ProjectContent = ({ projectList, setProject, selectedProjectKey }) => {
           <div className="space-y-6 lg:space-y-8 mb-8 lg:mb-12">
             <h1 className="text-2xl lg:text-3xl font-bold text-base-content">
               <BlurText
-                text={selectedProject.title}
+                text={selectedProject.name}
                 delay={150}
                 animateBy="words"
                 direction="top"

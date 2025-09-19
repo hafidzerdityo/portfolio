@@ -162,7 +162,7 @@ const Projects = ({ setShowNav }) => {
       initialOpacity={0}
     >
       <div className="min-h-screen bg-base-100 pb-12 lg:pb-20 pt-24 lg:pt-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           {/* Header */}
           <div className="text-center mb-10 lg:mb-16">
             <h1 className="text-2xl lg:text-4xl font-bold text-base-content">
@@ -185,7 +185,7 @@ const Projects = ({ setShowNav }) => {
                   onClick={() => setProject(val.key)}
                   className="group h-full bg-gradient-to-br from-base-200 to-base-300 rounded-xl overflow-hidden transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer"
                 >
-                  <div className="relative overflow-hidden h-40 lg:h-48 rounded-t-xl">
+                  <div className="relative overflow-hidden h-28 lg:h-32 rounded-t-xl">
                     <img
                       src={val.thumbnail}
                       alt={val.name}

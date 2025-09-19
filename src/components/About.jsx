@@ -10,7 +10,14 @@ import {
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Import client logos
+import {
+  faPython,
+  faNodeJs,
+  faReact,
+  faAws,
+  faGolang,
+} from "@fortawesome/free-brands-svg-icons";
+
 import bjb_syariah from "../assets/ClientLogo/bjb-syariah.png";
 import bcas_logo from "../assets/ClientLogo/bcas_logo.png";
 
@@ -27,188 +34,174 @@ const About = () => {
     }
   };
 
+  const techStackList = [
+    { name: "Go • Fiber • gRPC", icon: faGolang },
+    { name: "Python • FastAPI", icon: faPython },
+    { name: "Node.js • Express.js", icon: faNodeJs },
+    { name: "JavaScript • React.js", icon: faReact },
+    { name: "Amazon Web Service", icon: faAws },
+  ];
+
   const stats = [
-    { icon: faCalendarDays, value: "2+", title: "Years Experience" },
+    { icon: faCalendarDays, value: "4+", title: "Years" },
     { icon: faCode, value: "7+", title: "Projects" },
-    { icon: faBuilding, value: "3", title: "Companies" },
+    { icon: faBuilding, value: "2", title: "Companies" },
   ];
 
   const clients = [
     {
       name: "Bank BJB Syariah",
       logo: bjb_syariah,
-      projects: [
-        "Core Banking System",
-        "Branch Delivery System",
-        "Mobile Banking API",
-      ],
+      projects: ["Core Banking", "Branch Delivery", "Mobile Banking API"],
     },
     {
       name: "Bank BCA Syariah",
       logo: bcas_logo,
-      projects: ["Core Banking System", "Branch Delivery System"],
+      projects: ["Core Banking", "Branch Delivery"],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-base-100 py-24 lg:py-48">
-      <div className="container mx-auto max-w-4xl px-4 lg:px-8 flex flex-col gap-12 lg:gap-24">
-        {/* Introduction */}
-        <div className="flex flex-col gap-4 lg:gap-6">
-          <h1 className="text-3xl lg:text-4xl font-bold text-base-content">
+    <div className="min-h-screen bg-base-100 py-16 lg:py-24">
+      <div className="container mx-auto max-w-3xl px-4 flex flex-col gap-12">
+        {/* Intro */}
+        <div className="flex flex-col gap-3">
+          <h1 className="text-2xl font-bold text-base-content">
             Muhammad Hafidz Erdityo
           </h1>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 text-xs">
             <span className="badge bg-base-200 text-base-content">
               Software Engineer
             </span>
             <span className="badge bg-base-300 text-base-content">
               Backend Specialist
             </span>
-            <span className="badge bg-base-100 text-base-content">
-              🇮🇩 Indonesia
-            </span>
+            <span className="badge bg-base-100 text-base-content">🇮🇩</span>
           </div>
-          <p className="text-base lg:text-lg text-base-content leading-relaxed mt-4">
-            I'm a Software Engineer with 2+ years of experience in Backend
-            Engineering, building microservices for fintech applications
-            including sharia-compliant banking systems for institutions like
-            Bank BCA Syariah, Bank BJB Syariah, and national platforms like
-            Pospay Superapp and PosAjaUMKM. Currently exploring Machine Learning
-            and Blockchain technologies.
+          <p className="text-sm text-base-content leading-relaxed mt-2">
+            Software Engineer with 4+ years of experience. Built
+            sharia-compliant fintech microservices, including solutions for Bank
+            BCA Syariah, Bank BJB Syariah, Pospay Superapp, and PosAjaUMKM. As a
+            proud electrical engineer, I also build robotics projects for fun.
           </p>
         </div>
 
         {/* Core Expertise */}
         <div>
-          <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-base-content">
+          <h2 className="text-lg font-semibold mb-3 text-base-content">
             Core Expertise
           </h2>
-          <ul className="space-y-3">
-            <li className="flex flex-col lg:flex-row lg:items-center gap-3">
-              <span className="badge bg-base-200 badge-sm whitespace-nowrap">
-                Banking Systems
-              </span>
-              <span className="text-sm text-base-content">
-                Development of core banking systems and financial services
-                platforms
-              </span>
+          <ul className="space-y-2 text-sm">
+            <li className="flex gap-2">
+              <span className="badge badge-sm bg-base-300">Banking</span>
+              <span>Core systems & financial platforms</span>
             </li>
-            <li className="flex flex-col lg:flex-row lg:items-center gap-3">
-              <span className="badge bg-base-200 badge-sm whitespace-nowrap">
-                Backend Architecture
-              </span>
-              <span className="text-sm text-base-content">
-                Design and implementation of scalable microservices
-              </span>
+            <li className="flex gap-2">
+              <span className="badge badge-sm bg-base-300">Architecture</span>
+              <span>Scalable microservices</span>
             </li>
-            <li className="flex flex-col lg:flex-row lg:items-center gap-3">
-              <span className="badge bg-base-200 badge-sm whitespace-nowrap">
-                API Development
-              </span>
-              <span className="text-sm text-base-content">
-                High-performance APIs with FastAPI, Go Fiber, or any framework
-              </span>
+            <li className="flex gap-2">
+              <span className="badge badge-sm bg-base-300">APIs</span>
+              <span>High-performance APIs (FastAPI, Go Fiber, etc.)</span>
             </li>
           </ul>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-3 text-sm">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="card bg-base-200 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-xl"
+              className="card bg-base-200 shadow-sm rounded-lg p-3 flex flex-col items-center"
             >
-              <div className="card-body flex flex-col items-center text-center p-6 gap-3">
-                <div className="bg-base-300 p-3 rounded-full">
-                  <FontAwesomeIcon
-                    icon={stat.icon}
-                    className="text-xl text-base-content"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-base-content">
-                  {stat.value}
-                </h3>
-                <p className="text-sm text-base-content">{stat.title}</p>
-              </div>
+              <FontAwesomeIcon
+                icon={stat.icon}
+                className="text-base text-base-content mb-1"
+              />
+              <span className="text-lg font-bold">{stat.value}</span>
+              <span className="text-xs">{stat.title}</span>
             </div>
           ))}
         </div>
 
-        {/* Clients */}
-        <div>
-          <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-base-content">
-            Featured Clients
+        {/* Tech Stack */}
+        <section className="space-y-4">
+          <h2 className="text-lg lg:text-xl font-semibold text-base-content border-b border-base-300 pb-1">
+            Tech Stack
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {clients.map((client, idx) => (
-              <div
-                key={idx}
-                className="card bg-base-200 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-xl cursor-default"
-              >
-                <div className="card-body flex flex-col gap-3 p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-base-100 p-2 rounded-xl">
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className="w-12 h-12 object-contain"
-                      />
-                    </div>
-                    <h3 className="text-base font-medium text-base-content">
-                      {client.name}
-                    </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {techStackList.map((tech, idx) => (
+              <div key={idx} className="card bg-base-200 shadow-sm rounded-lg">
+                <div className="card-body flex-row items-center gap-2 p-2.5">
+                  <div className="bg-base-300 p-1.5 rounded-md">
+                    <FontAwesomeIcon
+                      icon={tech.icon}
+                      className="text-sm lg:text-base text-base-content"
+                    />
                   </div>
-                  <ul className="space-y-2 text-sm text-base-content pl-4">
-                    {client.projects.map((proj, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-base-content/50"></div>
-                        {proj}
-                      </li>
-                    ))}
-                  </ul>
+                  <span className="text-xs lg:text-sm text-base-content">
+                    {tech.name}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Contact */}
-        <div className="flex flex-col gap-4">
-          <h2 className="text-xl lg:text-2xl font-semibold text-base-content">
-            Contact Me
+        {/* Clients */}
+        <div>
+          <h2 className="text-lg font-semibold mb-3 text-base-content">
+            Notable Clients
           </h2>
-          <div className="flex flex-col sm:flex-row items-stretch gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {clients.map((client, idx) => (
+              <div
+                key={idx}
+                className="card bg-base-200 shadow-sm rounded-lg p-4 text-sm"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="w-8 h-8 object-contain"
+                  />
+                  <h3 className="font-medium">{client.name}</h3>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-xs text-base-content/80">
+                  {client.projects.map((proj, i) => (
+                    <li key={i}>{proj}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Contact */}
+        <div className="flex flex-col gap-3">
+          <h2 className="text-lg font-semibold text-base-content">Contact</h2>
+          <div className="flex flex-col sm:flex-row gap-3 text-sm">
             <a
               href="https://t.me/hafidzerdityo"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline btn-neutral flex-1 sm:flex-none gap-2 hover:scale-105 transition-transform"
+              className="btn btn-xs sm:btn-sm btn-outline btn-neutral gap-2"
             >
-              <FontAwesomeIcon icon={faTelegram} className="text-lg" />
+              <FontAwesomeIcon icon={faTelegram} className="text-sm" />
               Telegram
             </a>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-base-200">
+            <button
+              onClick={handleCopyEmail}
+              className="btn btn-xs sm:btn-sm btn-outline btn-neutral gap-2"
+            >
+              <FontAwesomeIcon icon={faEnvelope} className="text-sm" />
+              <span className="select-all text-xs">hafidze15@gmail.com</span>
               <FontAwesomeIcon
-                icon={faEnvelope}
-                className="text-base-content text-lg"
+                icon={copied ? faCheck : faCopy}
+                className={`text-xs ${
+                  copied ? "text-success" : "text-base-content/70"
+                }`}
               />
-              <span className="text-base-content select-all">
-                hafidze15@gmail.com
-              </span>
-              <button
-                onClick={handleCopyEmail}
-                className="ml-2 p-1.5 rounded-md hover:bg-base-300 transition-colors"
-              >
-                <FontAwesomeIcon
-                  icon={copied ? faCheck : faCopy}
-                  className={`text-sm ${
-                    copied ? "text-success" : "text-base-content/70"
-                  }`}
-                />
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </div>
